@@ -1,0 +1,27 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+	background-color: #dcdcdc;
+}
+
+header {
+	height: 80px;
+	font-size: 2rem;
+	background-color: #393939;
+	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.cv {
+	box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+	width: 21cm;
+	height: 29.7cm;
+	margin: 60px auto;
+	background-color: #f5f5f5;
+}

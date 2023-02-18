@@ -1,7 +1,13 @@
-import Dashboard from './components/Dashboard';
+import './styles/app.css';
 
 function App() {
-	return <Dashboard />;
+	return (
+		<>
+			<header>CV Builder</header>
+
+			<div className='cv'></div>
+		</>
+	);
 }
 
 export default App;
