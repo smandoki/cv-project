@@ -1,16 +1,16 @@
 import '../styles/itemCard.css';
 
-function ItemCard({ from, to, name, title, toggleEditModal, handleDelete }) {
+function ItemCard({ from, to, name, title, toggleModal, handleDelete }) {
 	return (
 		<div className='item-card'>
-			<strong>
+			<strong className='date'>
 				{from} - {to}
 			</strong>
 			<span>
 				<strong>{name}</strong>
 				<p>{title}</p>
 			</span>
-			<button className='icon-button mr-5 mla' onClick={toggleEditModal}>
+			<button className='icon-button mr-5 mla' onClick={toggleModal}>
 				<i className='bi bi-pencil'></i>
 				edit
 			</button>

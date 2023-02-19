@@ -1,9 +1,10 @@
 .item-card {
 	display: flex;
 	align-items: flex-start;
+	justify-content: space-between;
 }
 
-.item-card strong {
+.item-card .date {
 	width: 90px;
 	margin-right: 20px;
 }

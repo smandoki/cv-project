@@ -11,6 +11,7 @@ class EducationCardForm extends React.Component {
 			formTitle,
 			toggleModal,
 			handleChange,
+			buttonText,
 		} = this.props;
 
 		return (
@@ -39,7 +40,7 @@ class EducationCardForm extends React.Component {
 						<button type='button' onClick={toggleModal}>
 							cancel
 						</button>
-						<button type='submit'>edit</button>
+						<button type='submit'>{buttonText}</button>
 					</span>
 				</form>
 			</>

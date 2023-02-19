@@ -56,8 +56,36 @@ class Education extends React.Component {
 		});
 	};
 
-	closeEditModal = () => {
-		this.setState({ showEdit: false });
+	closeModal = () => {
+		this.setState({ showEdit: false, showAdd: false });
+	};
+
+	openAddModal = () => {
+		this.setState({
+			form: {
+				id: '',
+				name: '',
+				degree: '',
+				from: '',
+				to: '',
+			},
+			showAdd: true,
+		});
+	};
+
+	handleAdd = (e) => {
+		e.preventDefault();
+
+		this.setState((state) => {
+			const { educationItems, form } = state;
+			form.id = uniqid();
+
+			return {
+				educationItems: [...educationItems, form],
+			};
+		});
+
+		this.closeModal();
 	};
 
 	handleChange = (e) => {
@@ -90,7 +118,7 @@ class Education extends React.Component {
 			};
 		});
 
-		this.closeEditModal();
+		this.closeModal();
 	};
 
 	deleteItem = (id) => {
@@ -98,24 +126,22 @@ class Education extends React.Component {
 			const { educationItems } = state;
 			const index = educationItems.findIndex((item) => item.id === id);
 
-			if (index !== -1) {
-				educationItems.splice(index, 1);
-			}
+			educationItems.splice(index, 1);
 
 			return {
-				educationItems,
+				educationItems: [...educationItems],
 			};
 		});
 	};
 
 	render() {
-		const { educationItems, showEdit, form } = this.state;
+		const { educationItems, showEdit, showAdd, form } = this.state;
 
 		return (
 			<div className='education'>
 				<h3>
 					Education
-					<button className='icon-button'>
+					<button className='icon-button' onClick={this.openAddModal}>
 						<i className='bi bi-plus-lg'></i>
 						add
 					</button>
@@ -129,22 +155,25 @@ class Education extends React.Component {
 							to={to}
 							name={name}
 							title={degree}
-							toggleEditModal={() => this.openEditModal(id)}
+							toggleModal={() => this.openEditModal(id)}
 							handleDelete={() => this.deleteItem(id)}
 						/>
 					))}
 				</div>
 
-				<Modal show={showEdit} handleClose={this.closeEditModal}>
+				<Modal show={showEdit || showAdd} handleClose={this.closeModal}>
 					<EducationItemForm
 						from={form.from}
 						to={form.to}
 						name={form.name}
 						degree={form.degree}
-						formTitle='Edit Education Item'
-						toggleModal={this.closeEditModal}
+						formTitle={(showEdit ? 'Edit' : 'Add') + ' Education Item'}
+						toggleModal={this.closeModal}
 						handleChange={this.handleChange}
-						handleSubmit={(e) => this.handleEdit(e, form.id)}
+						handleSubmit={(e) =>
+							showEdit ? this.handleEdit(e, form.id) : this.handleAdd(e)
+						}
+						buttonText={showEdit ? 'Edit' : 'Add'}
 					/>
 				</Modal>
 			</div>
