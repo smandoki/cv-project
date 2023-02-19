@@ -1,12 +1,14 @@
 import React from 'react';
+import img from '../img/avatar-placeholder.png';
+import '../styles/avatar.css';
 
 class Avatar extends React.Component {
-	constructor() {
-		super();
-	}
-
 	render() {
-		return null;
+		return (
+			<div className='avatar'>
+				<img src={img} alt='avatar placeholder' />
+			</div>
+		);
 	}
 }
 
