@@ -8,46 +8,46 @@ import Profile from './components/Profile';
 import Avatar from './components/Avatar';
 
 class App extends React.Component {
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this.state = {
-			showButtons: true,
-		};
-	}
+    this.state = {
+      showButtons: true,
+    };
+  }
 
-	toggleButtons = () => {
-		this.setState((state) => ({ showButtons: !state.showButtons }));
-	};
+  toggleButtons = () => {
+    this.setState((state) => ({ showButtons: !state.showButtons }));
+  };
 
-	render() {
-		const { showButtons } = this.state;
+  render() {
+    const { showButtons } = this.state;
 
-		return (
-			<>
-				<header>CV Builder</header>
+    return (
+      <>
+        <header>CV Builder</header>
 
-				<button className='toggle' onClick={this.toggleButtons}>
-					Toggle Buttons
-				</button>
+        <button className='toggle' onClick={this.toggleButtons}>
+          Toggle Buttons
+        </button>
 
-				<div className='cv'>
-					<Header showButtons={showButtons} />
+        <div className='cv'>
+          <Header showButtons={showButtons} />
 
-					<aside>
-						<Avatar />
-						<Contact showButtons={showButtons} />
-					</aside>
+          <aside>
+            <Avatar />
+            <Contact showButtons={showButtons} />
+          </aside>
 
-					<section className='cv-body'>
-						<Profile showButtons={showButtons} />
-						<Education showButtons={showButtons} />
-						<Experience showButtons={showButtons} />
-					</section>
-				</div>
-			</>
-		);
-	}
+          <section className='cv-body'>
+            <Profile showButtons={showButtons} />
+            <Education showButtons={showButtons} />
+            <Experience showButtons={showButtons} />
+          </section>
+        </div>
+      </>
+    );
+  }
 }
 
 export default App;

@@ -1,15 +1,15 @@
 .item-card {
-	display: flex;
-	align-items: flex-start;
-	justify-content: flex-start;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
 
 .item-card .date {
-	width: 90px;
-	margin-right: 20px;
+  width: 90px;
+  margin-right: 20px;
 }
 
 .item-card .edit-delete {
-	display: flex;
-	margin-left: auto;
+  display: flex;
+  margin-left: auto;
 }
