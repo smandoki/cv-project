@@ -78,3 +78,31 @@ aside {
 	flex-direction: column;
 	gap: 20px;
 }
+
+form {
+	display: flex;
+	flex-direction: column;
+	padding: 0 6px;
+	margin-bottom: 10px;
+	width: 200px;
+}
+
+form label {
+	margin-bottom: 4px;
+}
+
+form input {
+	margin-bottom: 10px;
+	padding: 4px 8px;
+}
+
+form button {
+	padding: 2px 4px;
+}
+
+.form-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 4px;
+	margin-top: 20px;
+}
