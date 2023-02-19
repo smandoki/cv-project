@@ -103,6 +103,11 @@ form button {
 	padding: 2px 4px;
 }
 
+form textarea {
+	padding: 4px;
+	height: 200px;
+}
+
 .form-buttons {
 	display: flex;
 	justify-content: flex-end;

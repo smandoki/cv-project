@@ -89,8 +89,9 @@ class Contact extends React.Component {
 
 				<Modal show={show} handleClose={this.toggleModal}>
 					<h3>Edit Contact</h3>
+
 					<form onSubmit={this.handleSubmit}>
-						<label htmlFor='name'>Address</label>
+						<label htmlFor='address'>Address</label>
 						<input
 							type='text'
 							name='address'
@@ -98,7 +99,7 @@ class Contact extends React.Component {
 							onChange={this.handleChange}
 						/>
 
-						<label htmlFor='title'>Phone</label>
+						<label htmlFor='phone'>Phone</label>
 						<input
 							type='text'
 							name='phone'
@@ -106,7 +107,7 @@ class Contact extends React.Component {
 							onChange={this.handleChange}
 						/>
 
-						<label htmlFor='title'>Email</label>
+						<label htmlFor='email'>Email</label>
 						<input
 							type='text'
 							name='email'

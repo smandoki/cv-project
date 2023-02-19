@@ -73,6 +73,7 @@ class Header extends React.Component {
 
 				<Modal show={show} handleClose={this.toggleModal}>
 					<h3>Edit Name</h3>
+
 					<form onSubmit={this.handleSubmit}>
 						<label htmlFor='name'>Name</label>
 						<input
