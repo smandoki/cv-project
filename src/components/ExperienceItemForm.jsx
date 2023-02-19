@@ -1,12 +1,12 @@
 import React from 'react';
 
-class EducationItemForm extends React.Component {
+class ExperienceItemForm extends React.Component {
 	render() {
 		const {
 			from,
 			to,
-			name,
-			degree,
+			company,
+			title,
 			handleSubmit,
 			formTitle,
 			toggleModal,
@@ -19,14 +19,19 @@ class EducationItemForm extends React.Component {
 				<h3>{formTitle}</h3>
 
 				<form onSubmit={handleSubmit}>
-					<label htmlFor='name'>Name</label>
-					<input type='text' name='name' value={name} onChange={handleChange} />
-
-					<label htmlFor='degree'>Degree</label>
+					<label htmlFor='company'>Company</label>
 					<input
 						type='text'
-						name='degree'
-						value={degree}
+						name='company'
+						value={company}
+						onChange={handleChange}
+					/>
+
+					<label htmlFor='title'>Title</label>
+					<input
+						type='text'
+						name='title'
+						value={title}
 						onChange={handleChange}
 					/>
 
@@ -48,4 +53,4 @@ class EducationItemForm extends React.Component {
 	}
 }
 
-export default EducationItemForm;
+export default ExperienceItemForm;
