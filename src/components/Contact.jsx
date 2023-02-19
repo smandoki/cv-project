@@ -3,8 +3,8 @@ import '../styles/contact.css';
 import Modal from './Modal';
 
 class Contact extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			address: '761 Mayfair Ave',
@@ -61,12 +61,16 @@ class Contact extends React.Component {
 
 	render() {
 		const { address, phone, email, show, form } = this.state;
+		const showButtons = this.props.showButtons ? '' : ' display-none';
 
 		return (
 			<div className='contact'>
 				<h3>
 					Contact
-					<button className='icon-button' onClick={this.toggleModal}>
+					<button
+						className={'icon-button' + showButtons}
+						onClick={this.toggleModal}
+					>
 						<i className='bi bi-pencil'></i>
 						edit
 					</button>
@@ -111,6 +115,7 @@ class Contact extends React.Component {
 						<input
 							type='text'
 							name='email'
+							props
 							value={form.email}
 							onChange={this.handleChange}
 						/>

@@ -3,8 +3,8 @@ import '../styles/header.css';
 import Modal from './Modal';
 
 class Header extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			name: 'John Doe',
@@ -57,13 +57,17 @@ class Header extends React.Component {
 
 	render() {
 		const { name, title, show, form } = this.state;
+		const showButtons = this.props.showButtons ? '' : ' display-none';
 
 		return (
 			<>
 				<div className='cv-header'>
 					<span>
 						<h1>{name}</h1>
-						<button className='icon-button' onClick={this.toggleModal}>
+						<button
+							className={'icon-button' + showButtons}
+							onClick={this.toggleModal}
+						>
 							<i className='bi bi-pencil'></i>
 							edit
 						</button>

@@ -5,8 +5,8 @@ import Modal from './Modal';
 import EducationItemForm from './EducationItemForm';
 
 class Education extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			educationItems: [
@@ -136,12 +136,16 @@ class Education extends React.Component {
 
 	render() {
 		const { educationItems, showEdit, showAdd, form } = this.state;
+		const showButtons = this.props.showButtons ? '' : ' display-none';
 
 		return (
 			<div className='education'>
 				<h3>
 					Education
-					<button className='icon-button' onClick={this.openAddModal}>
+					<button
+						className={'icon-button' + showButtons}
+						onClick={this.openAddModal}
+					>
 						<i className='bi bi-plus-lg'></i>
 						add
 					</button>
@@ -157,6 +161,7 @@ class Education extends React.Component {
 							title={degree}
 							toggleModal={() => this.openEditModal(id)}
 							handleDelete={() => this.deleteItem(id)}
+							showButtons={this.props.showButtons}
 						/>
 					))}
 				</div>

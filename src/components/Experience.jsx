@@ -5,8 +5,8 @@ import ExperienceItemForm from './ExperienceItemForm';
 import Modal from './Modal';
 
 class Experience extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			experienceItems: [
@@ -136,12 +136,16 @@ class Experience extends React.Component {
 
 	render() {
 		const { experienceItems, showEdit, showAdd, form } = this.state;
+		const showButtons = this.props.showButtons ? '' : ' display-none';
 
 		return (
 			<div className='experience'>
 				<h3>
 					Experience
-					<button className='icon-button' onClick={this.openAddModal}>
+					<button
+						className={'icon-button' + showButtons}
+						onClick={this.openAddModal}
+					>
 						<i className='bi bi-plus-lg'></i>
 						add
 					</button>
@@ -157,6 +161,7 @@ class Experience extends React.Component {
 							title={title}
 							toggleModal={() => this.openEditModal(id)}
 							handleDelete={() => this.deleteItem(id)}
+							showButtons={this.props.showButtons}
 						/>
 					))}
 				</div>

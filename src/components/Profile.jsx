@@ -2,8 +2,8 @@ import React from 'react';
 import Modal from './Modal';
 
 class Profile extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.state = {
 			profile:
@@ -51,12 +51,16 @@ class Profile extends React.Component {
 
 	render() {
 		const { profile, show, form } = this.state;
+		const showButtons = this.props.showButtons ? '' : ' display-none';
 
 		return (
 			<div className='profile'>
 				<h3>
 					Profile
-					<button className='icon-button' onClick={this.toggleModal}>
+					<button
+						className={'icon-button' + showButtons}
+						onClick={this.toggleModal}
+					>
 						<i className='bi bi-pencil'></i>
 						edit
 					</button>
