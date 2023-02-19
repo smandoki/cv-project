@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/contact.css';
-import IconButton from './IconButton';
-import { CiEdit } from 'react-icons/ci';
 
 class Contact extends React.Component {
 	constructor() {
@@ -21,7 +19,10 @@ class Contact extends React.Component {
 			<div className='contact'>
 				<h3>
 					Contact
-					<IconButton icon={<CiEdit />} text='edit' />
+					<button className='edit-button'>
+						<i class='bi bi-pencil'></i>
+						edit
+					</button>
 				</h3>
 
 				<span>

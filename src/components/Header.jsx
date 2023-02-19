@@ -1,7 +1,5 @@
 import React from 'react';
 import '../styles/header.css';
-import IconButton from './IconButton';
-import { CiEdit } from 'react-icons/ci';
 
 class Header extends React.Component {
 	constructor() {
@@ -20,7 +18,10 @@ class Header extends React.Component {
 			<div className='cv-header'>
 				<span>
 					<h1>{name}</h1>
-					<IconButton icon={<CiEdit />} text='edit' />
+					<button className='edit-button'>
+						<i class='bi bi-pencil'></i>
+						edit
+					</button>
 				</span>
 				<p>{title}</p>
 			</div>
