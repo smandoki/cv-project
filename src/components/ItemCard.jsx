@@ -1,6 +1,6 @@
 import '../styles/itemCard.css';
 
-function ItemCard({ from, to, name, title }) {
+function ItemCard({ from, to, name, title, toggleEditModal }) {
 	return (
 		<div className='item-card'>
 			<strong>
@@ -10,7 +10,7 @@ function ItemCard({ from, to, name, title }) {
 				<strong>{name}</strong>
 				<p>{title}</p>
 			</span>
-			<button className='icon-button mr-5 mla'>
+			<button className='icon-button mr-5 mla' onClick={toggleEditModal}>
 				<i className='bi bi-pencil'></i>
 				edit
 			</button>
