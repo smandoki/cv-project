@@ -1,6 +1,6 @@
 import '../styles/itemCard.css';
 
-function ItemCard({ from, to, name, title, toggleEditModal }) {
+function ItemCard({ from, to, name, title, toggleEditModal, handleDelete }) {
 	return (
 		<div className='item-card'>
 			<strong>
@@ -14,7 +14,7 @@ function ItemCard({ from, to, name, title, toggleEditModal }) {
 				<i className='bi bi-pencil'></i>
 				edit
 			</button>
-			<button className='icon-button'>
+			<button className='icon-button' onClick={handleDelete}>
 				<i className='bi bi-trash'></i>
 				delete
 			</button>

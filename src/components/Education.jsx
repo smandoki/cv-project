@@ -93,6 +93,21 @@ class Education extends React.Component {
 		this.closeEditModal();
 	};
 
+	deleteItem = (id) => {
+		this.setState((state) => {
+			const { educationItems } = state;
+			const index = educationItems.findIndex((item) => item.id === id);
+
+			if (index !== -1) {
+				educationItems.splice(index, 1);
+			}
+
+			return {
+				educationItems,
+			};
+		});
+	};
+
 	render() {
 		const { educationItems, showEdit, form } = this.state;
 
@@ -115,6 +130,7 @@ class Education extends React.Component {
 							name={name}
 							title={degree}
 							toggleEditModal={() => this.openEditModal(id)}
+							handleDelete={() => this.deleteItem(id)}
 						/>
 					))}
 				</div>
