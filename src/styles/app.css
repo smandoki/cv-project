@@ -24,4 +24,11 @@ header {
 	height: 29.7cm;
 	margin: 60px auto;
 	background-color: #f5f5f5;
+	display: grid;
+	grid-template-columns: 5.5cm 1fr;
+	grid-template-rows: 130px 1fr;
+}
+
+aside {
+	background-color: #dddddd;
 }
