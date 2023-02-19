@@ -115,7 +115,6 @@ class Contact extends React.Component {
 						<input
 							type='text'
 							name='email'
-							props
 							value={form.email}
 							onChange={this.handleChange}
 						/>

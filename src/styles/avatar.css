@@ -2,9 +2,14 @@
 	display: flex;
 	justify-content: center;
 	width: 85%;
+	position: relative;
 }
 
 .avatar img {
 	width: 100%;
 	height: auto;
+}
+
+.avatar input {
+	display: none;
 }
