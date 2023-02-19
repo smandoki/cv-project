@@ -1,5 +1,4 @@
 import React from 'react';
-import '../styles/profile.css';
 
 class Profile extends React.Component {
 	constructor() {
@@ -18,7 +17,7 @@ class Profile extends React.Component {
 			<div className='profile'>
 				<h3>
 					Profile
-					<button className='edit-button'>
+					<button className='icon-button'>
 						<i class='bi bi-pencil'></i>
 						edit
 					</button>

@@ -19,7 +19,7 @@ class Contact extends React.Component {
 			<div className='contact'>
 				<h3>
 					Contact
-					<button className='edit-button'>
+					<button className='icon-button'>
 						<i class='bi bi-pencil'></i>
 						edit
 					</button>

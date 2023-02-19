@@ -18,7 +18,7 @@ class Header extends React.Component {
 			<div className='cv-header'>
 				<span>
 					<h1>{name}</h1>
-					<button className='edit-button'>
+					<button className='icon-button'>
 						<i class='bi bi-pencil'></i>
 						edit
 					</button>
