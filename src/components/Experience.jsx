@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/experience.css';
 import uniqid from 'uniqid';
+import ItemCard from './ItemCard';
 
 class Experience extends React.Component {
 	constructor() {
@@ -39,26 +39,15 @@ class Experience extends React.Component {
 					</button>
 				</h3>
 
-				<div className='experience-items'>
+				<div className='item-cards'>
 					{experienceItems.map(({ id, company, title, from, to }) => (
-						<div className='experience-item' key={id}>
-							Name
-							<strong>
-								{from} - {to}
-							</strong>
-							<span>
-								<strong>{title}</strong>
-								<p>{company}</p>
-							</span>
-							<button className='icon-button mr-5 mla'>
-								<i className='bi bi-pencil'></i>
-								edit
-							</button>
-							<button className='icon-button'>
-								<i className='bi bi-trash'></i>
-								delete
-							</button>
-						</div>
+						<ItemCard
+							key={id}
+							from={from}
+							to={to}
+							name={company}
+							title={title}
+						/>
 					))}
 				</div>
 			</div>

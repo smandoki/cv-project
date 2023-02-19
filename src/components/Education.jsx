@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/education.css';
 import uniqid from 'uniqid';
+import ItemCard from './ItemCard';
 
 class Education extends React.Component {
 	constructor() {
@@ -39,25 +39,9 @@ class Education extends React.Component {
 					</button>
 				</h3>
 
-				<div className='education-items'>
+				<div className='item-cards'>
 					{educationItems.map(({ id, name, degree, from, to }) => (
-						<div className='education-item' key={id}>
-							<strong>
-								{from} - {to}
-							</strong>
-							<span>
-								<strong>{name}</strong>
-								<p>{degree}</p>
-							</span>
-							<button className='icon-button mr-5 mla'>
-								<i className='bi bi-pencil'></i>
-								edit
-							</button>
-							<button className='icon-button'>
-								<i className='bi bi-trash'></i>
-								delete
-							</button>
-						</div>
+						<ItemCard key={id} from={from} to={to} name={name} title={degree} />
 					))}
 				</div>
 			</div>

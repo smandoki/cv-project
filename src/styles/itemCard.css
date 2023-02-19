@@ -1,0 +1,14 @@
+.item-card {
+	display: flex;
+	align-items: flex-start;
+}
+
+.item-card strong {
+	width: 90px;
+	margin-right: 20px;
+}
+
+.item-card .edit-delete {
+	display: flex;
+	margin-left: auto;
+}
