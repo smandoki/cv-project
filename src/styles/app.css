@@ -84,7 +84,8 @@ form {
 	flex-direction: column;
 	padding: 0 6px;
 	margin-bottom: 10px;
-	width: 200px;
+	margin-top: 20px;
+	width: 400px;
 }
 
 form label {
@@ -93,7 +94,9 @@ form label {
 
 form input {
 	margin-bottom: 10px;
-	padding: 4px 8px;
+	padding: 6px 8px;
+	border: 1px solid gray;
+	border-radius: 4px;
 }
 
 form button {
@@ -103,6 +106,10 @@ form button {
 .form-buttons {
 	display: flex;
 	justify-content: flex-end;
-	gap: 4px;
+	gap: 10px;
 	margin-top: 20px;
+}
+
+.modal h3 {
+	border-bottom: 1px solid rgb(150, 150, 150);
 }

@@ -10,36 +10,32 @@ class Header extends React.Component {
 			name: 'John Doe',
 			title: 'Software Engineer',
 			show: false,
-			edit: {
+			form: {
 				name: '',
 				title: '',
 			},
 		};
 	}
 
-	showModal = () => {
+	toggleModal = () => {
 		this.setState((state) => ({
-			edit: {
+			form: {
 				name: state.name,
 				title: state.title,
 			},
-			show: true,
+			show: !state.show,
 		}));
-	};
-
-	closeModal = () => {
-		this.setState({ show: false });
 	};
 
 	handleChange = (e) => {
 		const { name, value } = e.target;
 
 		this.setState((state) => {
-			const { edit } = state;
-			edit[name] = value;
+			const { form } = state;
+			form[name] = value;
 
 			return {
-				edit: { ...edit },
+				form,
 			};
 		});
 	};
@@ -48,26 +44,26 @@ class Header extends React.Component {
 		e.preventDefault();
 
 		this.setState((state) => {
-			const { edit } = state;
+			const { form } = state;
 
 			return {
-				name: edit.name,
-				title: edit.title,
+				name: form.name,
+				title: form.title,
 			};
 		});
 
-		this.closeModal();
+		this.toggleModal();
 	};
 
 	render() {
-		const { name, title, show, edit } = this.state;
+		const { name, title, show, form } = this.state;
 
 		return (
 			<>
 				<div className='cv-header'>
 					<span>
 						<h1>{name}</h1>
-						<button className='icon-button' onClick={this.showModal}>
+						<button className='icon-button' onClick={this.toggleModal}>
 							<i className='bi bi-pencil'></i>
 							edit
 						</button>
@@ -75,13 +71,14 @@ class Header extends React.Component {
 					<p>{title}</p>
 				</div>
 
-				<Modal show={show} handleClose={this.closeModal}>
+				<Modal show={show} handleClose={this.toggleModal}>
+					<h3>Edit Name</h3>
 					<form onSubmit={this.handleSubmit}>
 						<label htmlFor='name'>Name</label>
 						<input
 							type='text'
 							name='name'
-							value={edit.name}
+							value={form.name}
 							onChange={this.handleChange}
 						/>
 
@@ -89,12 +86,12 @@ class Header extends React.Component {
 						<input
 							type='text'
 							name='title'
-							value={edit.title}
+							value={form.title}
 							onChange={this.handleChange}
 						/>
 
 						<span className='form-buttons'>
-							<button type='button' onClick={this.closeModal}>
+							<button type='button' onClick={this.toggleModal}>
 								cancel
 							</button>
 							<button type='submit'>edit</button>
