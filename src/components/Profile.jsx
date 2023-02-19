@@ -18,7 +18,7 @@ class Profile extends React.Component {
 				<h3>
 					Profile
 					<button className='icon-button'>
-						<i class='bi bi-pencil'></i>
+						<i className='bi bi-pencil'></i>
 						edit
 					</button>
 				</h3>

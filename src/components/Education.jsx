@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/education.css';
+import uniqid from 'uniqid';
 
 class Education extends React.Component {
 	constructor() {
@@ -8,12 +9,14 @@ class Education extends React.Component {
 		this.state = {
 			educationItems: [
 				{
+					id: uniqid(),
 					name: 'Massachusetts Institute of Technology',
 					degree: 'Bachelor of Computer Science',
 					from: '2010',
 					to: '2012',
 				},
 				{
+					id: uniqid(),
 					name: 'Stanford University',
 					degree: 'Bachelor of Mathematics and statistics',
 					from: '2013',
@@ -31,14 +34,14 @@ class Education extends React.Component {
 				<h3>
 					Education
 					<button className='icon-button'>
-						<i class='bi bi-plus-lg'></i>
+						<i className='bi bi-plus-lg'></i>
 						add
 					</button>
 				</h3>
 
 				<div className='education-items'>
-					{educationItems.map(({ name, degree, from, to }) => (
-						<div className='education-item'>
+					{educationItems.map(({ id, name, degree, from, to }) => (
+						<div className='education-item' key={id}>
 							<strong>
 								{from} - {to}
 							</strong>
@@ -47,11 +50,11 @@ class Education extends React.Component {
 								<p>{degree}</p>
 							</span>
 							<button className='icon-button mr-5 mla'>
-								<i class='bi bi-pencil'></i>
+								<i className='bi bi-pencil'></i>
 								edit
 							</button>
 							<button className='icon-button'>
-								<i class='bi bi-trash'></i>
+								<i className='bi bi-trash'></i>
 								delete
 							</button>
 						</div>

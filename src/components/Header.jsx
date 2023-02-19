@@ -19,7 +19,7 @@ class Header extends React.Component {
 				<span>
 					<h1>{name}</h1>
 					<button className='icon-button'>
-						<i class='bi bi-pencil'></i>
+						<i className='bi bi-pencil'></i>
 						edit
 					</button>
 				</span>

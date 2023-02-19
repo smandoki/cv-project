@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/experience.css';
+import uniqid from 'uniqid';
 
 class Experience extends React.Component {
 	constructor() {
@@ -8,12 +9,14 @@ class Experience extends React.Component {
 		this.state = {
 			experienceItems: [
 				{
+					id: uniqid(),
 					company: 'Google',
 					title: 'Junior Web Developer',
 					from: '2010',
 					to: '2012',
 				},
 				{
+					id: uniqid(),
 					company: 'Uber',
 					title: 'Senior Web Developer',
 					from: '2013',
@@ -31,14 +34,15 @@ class Experience extends React.Component {
 				<h3>
 					Experience
 					<button className='icon-button'>
-						<i class='bi bi-plus-lg'></i>
+						<i className='bi bi-plus-lg'></i>
 						add
 					</button>
 				</h3>
 
 				<div className='experience-items'>
-					{experienceItems.map(({ company, title, from, to }) => (
-						<div className='experience-item'>
+					{experienceItems.map(({ id, company, title, from, to }) => (
+						<div className='experience-item' key={id}>
+							Name
 							<strong>
 								{from} - {to}
 							</strong>
@@ -47,11 +51,11 @@ class Experience extends React.Component {
 								<p>{company}</p>
 							</span>
 							<button className='icon-button mr-5 mla'>
-								<i class='bi bi-pencil'></i>
+								<i className='bi bi-pencil'></i>
 								edit
 							</button>
 							<button className='icon-button'>
-								<i class='bi bi-trash'></i>
+								<i className='bi bi-trash'></i>
 								delete
 							</button>
 						</div>
