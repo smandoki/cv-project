@@ -1,94 +1,58 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from './Modal';
 
-class Profile extends React.Component {
-  constructor(props) {
-    super(props);
+function Profile(props) {
+  const [profile, setProfile] = useState(
+    'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate velit inventore nemo, aperiam atque distinctio ipsum pariatur laborum quibusdam dolores iusto quae cum? Facilis voluptatibus consequatur, expedita dignissimos ad aliquid adipisci at, voluptate rem quo omnis voluptas. Ullam consectetur sequi cumque debitis. Aut atque numquam illum, adipisci odit obcaecati exercitationem?'
+  );
+  const [showModal, setShowModal] = useState(false);
+  const [formInput, setFormInput] = useState('');
 
-    this.state = {
-      profile:
-        'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptate velit inventore nemo, aperiam atque distinctio ipsum pariatur laborum quibusdam dolores iusto quae cum? Facilis voluptatibus consequatur, expedita dignissimos ad aliquid adipisci at, voluptate rem quo omnis voluptas. Ullam consectetur sequi cumque debitis. Aut atque numquam illum, adipisci odit obcaecati exercitationem?',
-      show: false,
-      form: { profile: '' },
-    };
-  }
-
-  toggleModal = () => {
-    this.setState((state) => ({
-      form: {
-        profile: state.profile,
-      },
-      show: !state.show,
-    }));
+  const toggleModal = () => {
+    setFormInput(profile);
+    setShowModal((prevShowModal) => !prevShowModal);
   };
 
-  handleChange = (e) => {
-    const { value } = e.target;
-
-    this.setState((state) => {
-      const { form } = state;
-      form.profile = value;
-
-      return {
-        form,
-      };
-    });
+  const handleChange = (e) => {
+    setFormInput(e.target.value);
   };
 
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-
-    this.setState((state) => {
-      const { form } = state;
-
-      return {
-        profile: form.profile,
-      };
-    });
-
-    this.toggleModal();
+    setProfile(formInput);
+    toggleModal();
   };
 
-  render() {
-    const { profile, show, form } = this.state;
-    const showButtons = this.props.showButtons ? '' : ' display-none';
+  const showButtons = props.showButtons ? '' : ' display-none';
 
-    return (
-      <div className='profile'>
-        <h3>
-          Profile
-          <button
-            className={'icon-button' + showButtons}
-            onClick={this.toggleModal}
-          >
-            <i className='bi bi-pencil'></i>
-            edit
-          </button>
-        </h3>
-        <p>{profile}</p>
+  return (
+    <div className='profile'>
+      <h3>
+        Profile
+        <button className={'icon-button' + showButtons} onClick={toggleModal}>
+          <i className='bi bi-pencil'></i>
+          edit
+        </button>
+      </h3>
+      <p>{profile}</p>
 
-        <Modal show={show} handleClose={this.toggleModal}>
-          <h3>Edit Profile</h3>
+      <Modal show={showModal} handleClose={toggleModal}>
+        <h3>Edit Profile</h3>
 
-          <form onSubmit={this.handleSubmit}>
-            <label htmlFor='profile'>Profile</label>
-            <textarea
-              value={form.profile}
-              name='profile'
-              onChange={this.handleChange}
-            />
+        <form onSubmit={handleSubmit}>
+          <label htmlFor='profile'>Profile</label>
+          <textarea value={formInput} name='profile' onChange={handleChange} />
 
-            <span className='form-buttons'>
-              <button type='button' onClick={this.toggleModal}>
-                cancel
-              </button>
-              <button type='submit'>edit</button>
-            </span>
-          </form>
-        </Modal>
-      </div>
-    );
-  }
+          <span className='form-buttons'>
+            <button type='button' onClick={toggleModal}>
+              cancel
+            </button>
+            <button type='submit'>edit</button>
+          </span>
+        </form>
+      </Modal>
+    </div>
+  );
 }
 
 export default Profile;
