@@ -75,19 +75,20 @@ function Education(props) {
     e.preventDefault();
 
     setEducationItems((prevEducationItems) => {
-      const index = prevEducationItems.findIndex((item) => item.id === id);
-      prevEducationItems[index] = { ...formInput };
+      const edittedEducationItems = [...prevEducationItems];
+      const index = edittedEducationItems.findIndex((item) => item.id === id);
+      edittedEducationItems[index] = { ...formInput };
 
-      return [...prevEducationItems];
+      return edittedEducationItems;
     });
 
     closeModal();
   };
 
   const deleteItem = (id) => {
-    setEducationItems((prevEducationItems) => {
-      return [...prevEducationItems.filter((item) => item.id !== id)];
-    });
+    setEducationItems((prevEducationItems) =>
+      prevEducationItems.filter((item) => item.id !== id)
+    );
   };
 
   const showButtons = props.showButtons ? '' : ' display-none';
